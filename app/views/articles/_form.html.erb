@@ -1,19 +1,14 @@
 <%= form_with(model: @article, local: true) do |f| %>
-  <p>
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
+  <div class="form-group row justify-content-md-center pt-4">
+    <%= f.text_field :title, class: "form-control-lg col-7 border border-secondary text-white", id: "form-content", placeholder: "Enter the title..." %>
+  </div>
 
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
+  <div class="form-group row justify-content-md-center pt-2">
+      <%= f.text_area :description, class: "form-control col-7 border border-secondary text-white", rows: 15, id: "form-content", placeholder: "Enter the description..." %>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="form-group row justify-content-md-center pt-2">
+    <%= f.submit class: "btn btn-secondary mr-2" %>
+    <%= link_to 'Cancel', articles_path, class: "btn btn-outline-secondary"  %>
+  </div>
 <% end %>
-
-<p>
-  <%= link_to 'Cancel and return to articles listing', articles_path %>
-</p>

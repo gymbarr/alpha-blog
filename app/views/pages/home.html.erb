@@ -1,6 +1,16 @@
-<h1>This is the Home page</h1>
+<!-- Page Wrapper -->
+<div class="page-holder bg-cover" id="home-bg">
+  <div class="container" id="home-container">
+    <header class="text-center text-black">
+      <h1 class="display-4 font-weight-bold pt-4">Make your thoughts alive!</h1>
+      <h2 class="pb-5">with Just Blog</h1>
+      <button type="button" class="btn btn-dark btn-lg">TRY IT</button>
+    </header>
+  </div>
+</div>
 
-<p>
-  <%= link_to 'Articles listing', articles_path %>  |
-  <%= link_to 'About', about_path %>
-</p>
+<footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white">
+  <div class="container text-center">
+    <small>Copyright &copy; <%= link_to "Andrey Timakhovich", "https://www.linkedin.com/in/andrey-timakhovich-5a2429169/", class: "text-white" %></small>
+  </div>
+</footer>

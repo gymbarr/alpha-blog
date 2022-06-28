@@ -1,0 +1,68 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-bg {
+  background-image: asset-url('homepage_bg.jpg');
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  background-position: bottom;
+  height: 800px;
+}
+
+#home-container {
+  padding-top: 300px;
+}
+
+html,
+ body {
+   height: 100%;
+   background-color: #202020;
+   flex: 1 0 auto;
+ }
+
+ /*
+#page-content {
+  flex: 1 0 auto;
+}
+*/
+
+#article-card {
+  background-color: #343434;
+}
+
+#form-content {
+  background-color: #343434;
+}
+
+/*change borders color of focused form control */
+.form-control-lg:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(236, 236, 236, 0.6);
+}
+
+.form-control:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(236, 236, 236, 0.6);
+}
+
+/*disable borders on focused input fields, textareas, buttons */
+input, textarea, button {outline: none; }
+
+.btn-circle.btn-xl {
+  position: fixed;
+  bottom: 40px;
+  right: 110px;
+  z-index: 99;
+  width: 70px;
+  height: 70px;
+  padding: 1px;
+  border-radius: 35px;
+  font-size: 40px;
+  text-align: center;
+}
