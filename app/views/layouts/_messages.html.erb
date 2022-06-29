@@ -1,3 +1,14 @@
-<% flash.each do |name, msg| %>
-  <%= msg %>
+<% unless flash.empty? %>
+  <div class="container-fluid pt-4">
+    <div class="row justify-content-md-center">
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-dismissible fade show col-8 text-success" id="success-alert" role="alert">
+            <%= msg %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+    </div>
+  </div>
 <% end %>

@@ -18,7 +18,7 @@
 }
 
 #home-container {
-  padding-top: 300px;
+  padding-top: 150px;
 }
 
 html,
@@ -34,11 +34,7 @@ html,
 }
 */
 
-#article-card {
-  background-color: #343434;
-}
-
-#form-content {
+#window {
   background-color: #343434;
 }
 
@@ -65,4 +61,14 @@ input, textarea, button {outline: none; }
   border-radius: 35px;
   font-size: 40px;
   text-align: center;
+}
+
+#error-alert {
+  background: rgba(118, 24, 24, 0.39);
+  border-color: #761818;
+}
+
+#success-alert {
+  background: rgba(4, 107, 26, 0.516);
+  border-color: #046B1A;
 }
