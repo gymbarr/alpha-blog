@@ -14,7 +14,7 @@
         <div class="card text-center shadow mb-5 rounded" id="window">
           <%# header of the card %>
           <div class="card-header font-italic text-white-50">
-            by Andrey Timakhovich
+            by <%= article.user.username if @article.user %>
           </div>
           <%# card body with title and description of the article %>
           <div class="card-body">

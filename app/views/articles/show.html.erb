@@ -6,7 +6,7 @@
       <div class="row justify-content-md-center py-4">
         <div class="col-10 text-white">
           <%# on the top of the article located an author name %>
-          <h5 class="font-italic text-white-50 text-center">by Andrey Timakhovich</h5>
+          <h5 class="font-italic text-white-50 text-center">by <%= @article.user.username if @article.user %></h5>
 
           <%# displaying the title of the article %>
           <h1 class="display-4 text-center"><strong><%= @article.title %></strong></h1>
