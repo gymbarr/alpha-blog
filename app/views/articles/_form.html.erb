@@ -1,17 +1,22 @@
+<%# form for creating and editind articles %>
+
 <div class="container-fluid py-4">
   <%= form_with(model: @article, local: true) do |f| %>
+    <%# markup of article's title field %>
     <div class="row justify-content-md-center pb-4">
       <div class="col-7">
         <%= f.text_field :title, class: "form-control border border-secondary text-white", id: "window", placeholder: "Enter the title..." %>
       </div>
     </div>
 
+    <%# markup of article's description field %>
     <div class="row justify-content-md-center pb-4">
       <div class="col-7">
         <%= f.text_area :description, class: "form-control border border-secondary text-white", rows: 15, id: "window", placeholder: "Enter the description..." %>
       </div>
     </div>
 
+    <%# markup of submition (create or update) and cancel buttons %>
     <div class="row justify-content-md-center">
       <%= f.submit class: "btn btn-secondary mr-2" %>
       <%= link_to 'Cancel', articles_path, class: "btn btn-outline-secondary"  %>

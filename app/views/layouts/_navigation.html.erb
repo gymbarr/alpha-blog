@@ -1,8 +1,14 @@
+<%# navigation bar created with Bootstrap 4 %>
+<%# See information on https://getbootstrap.com/docs/4.6/components/navbar/ %>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <%# bar logog %>
   <%= link_to "JUST BLOG", root_path, class: "navbar-brand", id: "logo" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <%# buttons that located on the right side of the bar %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto text-center">
       <li class="nav-item active">

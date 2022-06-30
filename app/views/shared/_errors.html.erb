@@ -1,13 +1,19 @@
+<%# showing error bars %>
+<%# errors appears when article wasn't been updated or created %>
+
+<%# check if thera any errors %>
 <% if @article.errors.any? %>
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-7">
         <div class="alert alert-dismissible fade show text-danger" id="error-alert" role="alert">
           <ul>
+            <%# show each error %>
             <% @article.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
+          <%# close error message button %>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
