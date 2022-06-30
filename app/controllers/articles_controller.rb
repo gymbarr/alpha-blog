@@ -21,6 +21,8 @@ class ArticlesController < ApplicationController
   def create
     # creating new article with title and description params
     @article = Article.new(article_params)
+    # temporary plug for author of the article
+    @article.user = User.first
 
     # when the new article was created parameters created_at, updated_at sets automatically (see articles table in schema.db)
     if @article.save

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  # add one to many association for user-articles
+  has_many :articles
   # constraint for usename length and uniqueness
   validates :username, presence: true,
                       uniqueness: { case_sensitive: false }, 
