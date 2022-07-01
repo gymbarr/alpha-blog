@@ -1,15 +1,14 @@
 <%# showing error bars %>
-<%# errors appears when article wasn't been updated or created %>
 
-<%# check if thera any errors %>
-<% if @article.errors.any? %>
+<%# check if there any errors %>
+<% if obj.errors.any? %>
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-7">
         <div class="alert alert-dismissible fade show text-danger" id="error-alert" role="alert">
           <ul>
             <%# show each error %>
-            <% @article.errors.full_messages.each do |msg| %>
+            <% obj.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>

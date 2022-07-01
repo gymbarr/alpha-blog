@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  # method assign a new article to the instance variable
+  # method initiate a new article
   def new
     @article = Article.new
   end
