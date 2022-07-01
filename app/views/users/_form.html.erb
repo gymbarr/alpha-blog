@@ -1,24 +1,32 @@
+<%# form for creating new users %>
+
 <div class="container-fluid">
   <%= form_with(model: @user, local: true) do |f| %>
     <div class="row justify-content-md-center pt-2">
+      <%# markup the form container %>
       <div class="col-4 border rounded border-secondary" id="window">
         <div class="row justify-content-md-center py-4">
           <div class="col-10 text-white pb-4">
+          <%# field for username %>
             <div class="form-group">
               <%= f.text_field :username, class: "form-control border border-secondary text-white", id: "window", placeholder: "Username" %>
             </div>
+            <%# field for user email %>
             <div class="form-group">
               <%= f.email_field :email, class: "form-control border border-secondary text-white", id: "window", placeholder: "Email" %>
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
+            <%# field for user password %>
             <div class="form-group">
               <%= f.password_field :password, class: "form-control border border-secondary text-white", id: "window", placeholder: "Password" %>
             </div>
+            <%# checkbox for to choose save or not a user's password in a browser %>
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label text-muted" for="exampleCheck1">Check me out</label>
             </div>
           </div>
+          <%# button for creating a user %>
           <%= f.submit class: "btn btn-secondary" %>
         </div>
       </div>
