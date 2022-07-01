@@ -20,14 +20,12 @@
             <div class="form-group">
               <%= f.password_field :password, class: "form-control border border-secondary text-white", id: "window", placeholder: "Password" %>
             </div>
-            <%# checkbox for to choose save or not a user's password in a browser %>
-            <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label text-muted" for="exampleCheck1">Check me out</label>
-            </div>
           </div>
-          <%# button for creating a user %>
-          <%= f.submit "Sign Up", class: "btn btn-secondary" %>
+          <div class="row justify-content-md-center">
+            <%# button for creating or updating a user %>
+            <%= f.submit(@user.new_record? ? "Sign Up" : "Update", class: "btn btn-secondary mr-2") %>
+            <%= link_to 'Cancel', root_path, class: "btn btn-outline-secondary"  %>
+          </div>
         </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # method for updatind articles
+  # method for updating articles
   def update
     # updating new article with title and description params
     # when the article was updated parameterupdated_at updated automatically
