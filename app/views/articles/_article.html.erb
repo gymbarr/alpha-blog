@@ -1,0 +1,37 @@
+<%# this page consists of all articles in short form, made with bootstrap element called "card" %>
+<%# to get more info about cards see https://getbootstrap.com/docs/4.6/components/card/ %>
+
+<%# main container that include all of the cards %>
+<div class="container">
+  <%# iterate over articles and show their info %>
+  <% obj.each do |article| %>
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <%# start of the card element %>
+        <div class="card text-center shadow mb-5 rounded" id="window">
+          <%# header of the card %>
+          <div class="card-header font-italic text-white-50">
+            by <%= article.user.username if article.user %>
+          </div>
+          <%# card body with title and description of the article %>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-white" %></h5>
+            <%# amount of symbols of the discription limited by "length" parameter %>
+            <p class="card-text text-white"><%= truncate(article.description, length: 100) %></p> 
+            <%# buttons for showing and editing the article %>
+            <%# "article" parameter transfer id of the article to the path %>
+            <%= link_to 'View', article_path(article), class: "btn btn-secondary" %>
+            <%= link_to 'Edit', edit_article_path(article), class: "btn btn-secondary" %>
+          </div>
+
+          <%# card footer displays time when article was created and updated %>
+          <%# relative time get by using method time_ago_in_words  %>
+          <div class="card-footer text-white-50">
+            <small> Created <%= time_ago_in_words(article.created_at) %> ago,
+            edited <%= time_ago_in_words(article.updated_at) %> ago </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

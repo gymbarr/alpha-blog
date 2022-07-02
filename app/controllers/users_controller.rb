@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  def show
+    @user = User.find(params[:id])
+  end
+
   # method initiate a new user
   def new
     @user = User.new
