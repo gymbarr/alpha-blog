@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
   # method assign all the articles to the instance variable to show page of listing articles
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
   # method initiate a new article

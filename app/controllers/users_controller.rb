@@ -3,11 +3,12 @@ class UsersController < ApplicationController
   # it's used for displaying a user profile
   def show
     @user = User.find(params[:id])
+    @articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
 
   # method gets all the users to displaying the list of users
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 2)
   end
 
   # method initiate a new user

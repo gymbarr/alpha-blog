@@ -23,16 +23,10 @@
 
 html,
  body {
-   height: 100%;
-   background-color: #202020;
-   flex: 1 0 auto;
- }
-
- /*
-#page-content {
+  height: 100%;
+  background-color: #202020;
   flex: 1 0 auto;
-}
-*/
+ }
 
 #window {
   background-color: #343434;
@@ -72,3 +66,35 @@ input, textarea, button {outline: none; }
   background: rgba(4, 107, 26, 0.516);
   border-color: #046B1A;
 }
+
+// pagination styling
+.apple_pagination {
+  background: #202020;
+  // border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em;
+    color: #999999 }
+  .apple_pagination .disabled {
+    color: white; }
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    color: white;
+    background-color: #343434;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    // text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; 
+  }
+  .apple_pagination a {
+    text-decoration: none;
+    color: #999999; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }

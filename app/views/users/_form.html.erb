@@ -24,7 +24,8 @@
           <div class="row justify-content-md-center">
             <%# button for creating or updating a user %>
             <%= f.submit(@user.new_record? ? "Sign Up" : "Update", class: "btn btn-secondary mr-2") %>
-            <%= link_to 'Cancel', @user, class: "btn btn-outline-secondary" %>
+            <%# return on the previous page action for Cancel button %>
+            <%= link_to "Cancel", :back, class: "btn btn-outline-secondary" %>
           </div>
         </div>
       </div>

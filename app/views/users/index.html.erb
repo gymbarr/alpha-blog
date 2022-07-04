@@ -40,3 +40,8 @@
     </div>
   <% end %>
 </div>
+
+ <%# render page links in the view: %>
+<div class="apple_pagination pb-4">
+  <%= will_paginate @users, :container => false %>
+</div>
