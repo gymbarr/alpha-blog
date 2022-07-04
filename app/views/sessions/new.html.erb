@@ -1,20 +1,16 @@
-<%# form for creating new users %>
+<h1 class="text-center pt-4 text-white">Sign in</h1>
 
+<%# form for signing in users %>
 <div class="container-fluid">
-  <%= form_with(model: @user, local: true) do |f| %>
+  <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
     <div class="row justify-content-md-center pt-2">
       <%# markup the form container %>
       <div class="col-4 border rounded border-secondary" id="window">
         <div class="row justify-content-md-center py-4">
           <div class="col-10 text-white pb-4">
-          <%# field for username %>
-            <div class="form-group">
-              <%= f.text_field :username, class: "form-control border border-secondary text-white", id: "window", placeholder: "Username" %>
-            </div>
             <%# field for user email %>
             <div class="form-group">
               <%= f.email_field :email, class: "form-control border border-secondary text-white", id: "window", placeholder: "Email" %>
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <%# field for user password %>
             <div class="form-group">
@@ -23,7 +19,7 @@
           </div>
           <div class="row justify-content-md-center">
             <%# button for creating or updating a user %>
-            <%= f.submit(@user.new_record? ? "Sign Up" : "Update", class: "btn btn-secondary mr-2") %>
+            <%= f.submit "Sign In", class: "btn btn-secondary mr-2" %>
             <%# return on the previous page action for Cancel button %>
             <%= link_to "Cancel", :back, class: "btn btn-outline-secondary" %>
           </div>
