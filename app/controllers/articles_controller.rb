@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   def show
   end
 
-  # method assign all the articles to the instance variable
+  # method assign all the articles to the instance variable to show page of listing articles
   def index
     @articles = Article.all
   end

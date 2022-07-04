@@ -5,8 +5,11 @@
     <div class="col-8 border rounded border-secondary" id="window">
       <div class="row justify-content-md-center py-4">
         <div class="col-10 text-white">
-          <%# on the top of the article located an author name %>
-          <h5 class="font-italic text-white-50 text-center">by <%= @article.user.username if @article.user %></h5>
+          <%# on the top of the article located an author name and his avatar if user exist %>
+          <% if @article.user %>
+            <h5 class="font-italic text-center text-white-50">by <%= link_to @article.user.username, @article.user, class: "text-white-50" %></h5>
+            <%= link_to gravatar_for(@article.user), @article.user %>
+          <% end %>
 
           <%# displaying the title of the article %>
           <h1 class="display-4 text-center"><strong><%= @article.title %></strong></h1>

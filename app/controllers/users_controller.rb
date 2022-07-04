@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
-
+  # method gets the User instance by user's id
+  # it's used for displaying a user profile
   def show
     @user = User.find(params[:id])
   end
 
+  # method gets all the users to displaying the list of users
   def index
     @users = User.all
   end
@@ -13,6 +15,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # the method used for editing a user profile
   def edit
     @user = User.find(params[:id])
   end
@@ -25,7 +28,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       flash[:notice] = "Your profile was updated successfully!"
       # redirect to the articles page
-      redirect_to articles_path
+      redirect_to @user
     else
       # redirecting to the edit page if the user wasn't updated
       render 'edit'
