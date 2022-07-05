@@ -33,10 +33,6 @@ html,
 }
 
 /*change borders color of focused form control */
-.form-control-lg:focus {
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(236, 236, 236, 0.6);
-}
-
 .form-control:focus {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(236, 236, 236, 0.6);
 }
@@ -95,6 +91,24 @@ input, textarea, button {outline: none; }
   }
   .apple_pagination a {
     text-decoration: none;
-    color: #999999; }
-    .apple_pagination a:hover, .apple_pagination a:focus {
-      text-decoration: underline; }
+    color: #999999; 
+  }
+  .apple_pagination a:hover, .apple_pagination a:focus {
+    text-decoration: underline; 
+  }
+
+// on click to dropdown element of navbar it's border color became blue
+// so, this option makes no border
+.dropdown .dropdown-toggle:focus {
+  outline: 0 !important;
+}
+
+// the color of the dropdown item on click action
+.dropdown-item:active {
+  background-color: #202020;
+}
+
+// the color of the dropdown item on hover action
+.dropdown-item:hover {
+  background-color: #202020;
+}

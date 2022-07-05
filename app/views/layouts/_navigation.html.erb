@@ -19,12 +19,30 @@
       <li class="nav-item">
         <%= link_to "Users", users_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Sign In", login_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign Out", logout_path, class: "nav-link", method: :delete %>
-      </li>
+      <%# when a user logged in %>
+      <% if logged_in? %>
+        <%# display dropdown element with username text %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            <%= current_user.username %>
+          </a>
+          <%# dropdown list %>
+          <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+            <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item text-white" %>
+            <%= link_to "My articles", user_path(current_user), class: "dropdown-item text-white" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Sign Out", logout_path, class: "dropdown-item text-white", method: :delete %>
+          </div>  
+        </li>
+      <% else %>
+        <%# when a user not logged in display button of Sign In %>
+        <li class="nav-item">
+          <%= link_to "Sign In", login_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
