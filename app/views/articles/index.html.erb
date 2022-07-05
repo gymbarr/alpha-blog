@@ -8,6 +8,10 @@
   <%= will_paginate @articles, :container => false %>
 </div>
 
-<%# button for creation a new article %>
-<%# this button has a static position relatively to the screen when scrolling the page %>
-<%= link_to '+', new_article_path, class: "btn btn-secondary btn-circle btn-xl" %>
+<%# button for creation a new article. visible only for logged in users %>
+<%# so, check if a user logged in %>
+<%# edit a user profile can only an owner of that profile, so compare a user with an owner %>
+<% if logged_in? %>
+  <%# this button has a static position relatively to the screen when scrolling the page %>
+  <%= link_to '+', new_article_path, class: "btn btn-secondary btn-circle btn-xl" %>
+<% end %>

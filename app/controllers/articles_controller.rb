@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  # check that a user is logged in (order of calling methods :require_user and :require_same_user is matter! )
+  before_action :require_user, except: [:show, :index]
+  # check that the same user is logged in
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -58,11 +62,20 @@ class ArticlesController < ApplicationController
 
   private
 
+  # get an article instance by id
   def set_article
     @article = Article.find(params[:id])
   end
 
   def article_params
     params.require(:article).permit(:title, :description)
+  end
+
+  # restriction for a user not made actions with another user's articles through url
+  def require_same_user
+    if current_user != @article.user
+      flash[:alert] = "You can only edit or delete your own articles"
+      redirect_to @article
+    end
   end
 end
