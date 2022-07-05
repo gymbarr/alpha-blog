@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   # the method delete a session when a user loged out
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "Signed out"
+    # flash[:notice] = "Signed out"
     # show home page
     redirect_to root_path
   end

@@ -25,10 +25,13 @@
     </div>
   </div>
   
-  <%# buttons for editing and deleting the article %>
-  <div class="row justify-content-md-center pt-4">
-    <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-secondary mr-2" %>
-    <%# deleting the article made with confirmation %>
-    <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
-  </div>
+  <%# edit articles can only an author, so compare a user with an author %>
+  <% if logged_in? && @article.user == current_user %>
+    <%# buttons for editing and deleting the article %>
+    <div class="row justify-content-md-center pt-4">
+      <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-secondary mr-2" %>
+      <%# deleting the article made with confirmation %>
+      <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+    </div>
+  <% end %>
 </div>

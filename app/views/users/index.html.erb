@@ -27,7 +27,10 @@
             <%# buttons for showing and editing a user %>
             <%# "user" parameter transfer id of a user to the path %>
             <%= link_to 'View profile', user, class: "btn btn-secondary" %>
-            <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-secondary" %>
+            <%# edit a user profile can only an owner of that profile, so compare a user with an owner %>
+            <% if logged_in? && user == current_user %>
+              <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-secondary" %>
+            <% end %>
           </div>
 
           <%# card footer displays time when user was registered %>

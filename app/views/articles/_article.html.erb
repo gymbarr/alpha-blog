@@ -23,7 +23,10 @@
             <%# buttons for showing and editing the article %>
             <%# "article" parameter transfer id of the article to the path %>
             <%= link_to 'View', article_path(article), class: "btn btn-secondary" %>
-            <%= link_to 'Edit', edit_article_path(article), class: "btn btn-secondary" %>
+            <%# edit articles can only an author, so compare a user with an author %>
+            <% if logged_in? && article.user == current_user %>
+              <%= link_to 'Edit', edit_article_path(article), class: "btn btn-secondary" %>
+            <% end %>
           </div>
 
           <%# card footer displays time when article was created and updated %>

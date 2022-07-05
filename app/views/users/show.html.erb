@@ -5,9 +5,12 @@
   <%= gravatar_for @user, size: 200 %>
 </div>
 
-<div class="text-center pt-4">
-  <%= link_to "Edit your profile", edit_user_path(@user), class:"btn btn-secondary" %>
-</div>
+<%# edit a user profile can only an owner of that profile, so compare a user with an owner %>
+<% if logged_in? && @user == current_user %>
+  <div class="text-center pt-4">
+    <%= link_to "Edit your profile", edit_user_path(@user), class:"btn btn-secondary" %>
+  </div>
+<% end %>
 
 <h3 class="text-center pt-4 text-white">Articles</h3>
 
