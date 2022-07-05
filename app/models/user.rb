@@ -3,7 +3,7 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   # add one to many association for user-articles
-  has_many :articles
+  has_many :articles, dependent: :destroy
   
   # constraint for usename length and uniqueness
   validates :username, presence: true,

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user, only: [:edit, :update]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # method gets the User instance by user's id
   # it's used for displaying a user profile
@@ -53,6 +53,15 @@ class UsersController < ApplicationController
       # redirecting to the new page if the user wasn't created
       render 'new'
     end
+  end
+
+  # method for deleting a user
+  def destroy
+    @user.destroy
+    # finish the deleted user session
+    session[:user_id] = nil
+    flash[:notice] = "Account and all associated articles successfully deleted"
+    redirect_to articles_path
   end
 
   private

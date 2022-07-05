@@ -1,3 +1,10 @@
 <h1 class="text-center pt-4 text-white">Edit your profile</h1>
 <%= render 'shared/errors', obj: @user %> %>
 <%= render 'form' %>
+
+<%# deleting a user account with confirmation %>
+<div class="container-fluid fixed-bottom pb-5">
+  <div class="row justify-content-md-center pb-5">
+    <%= link_to 'Delete Account', user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+  </div>
+</div>
