@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
   # method gets the User instance by user's id
   # it's used for displaying a user profile
@@ -59,7 +61,16 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password)
   end
 
+  # get a user instance by id
   def set_user
     @user = User.find(params[:id])
+  end
+
+  # restriction for a user not made actions with another user's profiles through url
+  def require_same_user
+    if current_user != @user
+      flash[:alert] = "You can only edit or your own profile"
+      redirect_to @user
+    end
   end
 end
