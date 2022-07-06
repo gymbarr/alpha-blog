@@ -25,8 +25,8 @@
     </div>
   </div>
   
-  <%# edit articles can only an author, so compare a user with an author %>
-  <% if logged_in? && @article.user == current_user %>
+  <%# edit articles can only an author or admin, so compare a user with an author and admin %>
+  <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
     <%# buttons for editing and deleting the article %>
     <div class="row justify-content-md-center pt-4">
       <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-secondary mr-2" %>

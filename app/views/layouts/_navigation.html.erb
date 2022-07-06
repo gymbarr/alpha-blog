@@ -24,7 +24,8 @@
         <%# display dropdown element with username text %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            <%= current_user.username %>
+            <%# display Admin text also if the logged in user has that permission %>
+            <%= "(Admin)" if current_user.admin? %> <%= current_user.username %>
           </a>
           <%# dropdown list %>
           <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">

@@ -27,9 +27,17 @@
             <%# buttons for showing and editing a user %>
             <%# "user" parameter transfer id of a user to the path %>
             <%= link_to 'View profile', user, class: "btn btn-secondary" %>
-            <%# edit a user profile can only an owner of that profile, so compare a user with an owner %>
-            <% if logged_in? && user == current_user %>
-              <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-secondary" %>
+            <%# chek if a user logged in %>
+            <% if logged_in? %>
+              <%# edit a user profile can only an owner of that profile, so compare a user with an owner %>
+              <% if user == current_user %> 
+                <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-secondary" %>
+              <% end %>
+              <%# button for deleting a user visible only for admin %>
+              <% if current_user.admin? %>
+                <%= link_to 'Delete Account', user_path(user), method: :delete, class: "btn btn-outline-danger", 
+                data: { confirm: "Are you sure you want to delete the user account and all associated articles?" } %>
+              <% end %>
             <% end %>
           </div>
 

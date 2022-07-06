@@ -73,7 +73,8 @@ class ArticlesController < ApplicationController
 
   # restriction for a user not made actions with another user's articles through url
   def require_same_user
-    if current_user != @article.user
+    # check if current user is the author of the article or the admin
+    if current_user != @article.user && !current_user.admin?
       flash[:alert] = "You can only edit or delete your own articles"
       redirect_to @article
     end

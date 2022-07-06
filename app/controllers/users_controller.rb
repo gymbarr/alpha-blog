@@ -58,8 +58,8 @@ class UsersController < ApplicationController
   # method for deleting a user
   def destroy
     @user.destroy
-    # finish the deleted user session
-    session[:user_id] = nil
+    # finish the deleted user session if deleted user is a logged in user (it needs when a user deleted by the admin)
+    session[:user_id] = nil if @user == current_user
     flash[:notice] = "Account and all associated articles successfully deleted"
     redirect_to articles_path
   end
@@ -77,8 +77,9 @@ class UsersController < ApplicationController
 
   # restriction for a user not made actions with another user's profiles through url
   def require_same_user
-    if current_user != @user
-      flash[:alert] = "You can only edit or your own profile"
+    # check if current user is profile's owner or the admin
+    if current_user != @user && !current_user.admin?
+      flash[:alert] = "You can only edit or delete your own profile"
       redirect_to @user
     end
   end
