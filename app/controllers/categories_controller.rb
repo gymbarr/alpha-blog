@@ -20,8 +20,10 @@ class CategoriesController < ApplicationController
     end
   end
 
+  # the method assign all the categories to the instance variable to show page of listing categories
+  # with the use of will_paginate gem here was added a pagination
   def index
-
+    @categories = Category.paginate(page: params[:page], per_page: 5)
   end
 
   def show

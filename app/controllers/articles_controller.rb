@@ -8,7 +8,8 @@ class ArticlesController < ApplicationController
   def show
   end
 
-  # method assign all the articles to the instance variable to show page of listing articles
+  # the method assign all the articles to the instance variable to show page of listing articles
+  # with the use of will_paginate gem here was added a pagination
   def index
     @articles = Article.paginate(page: params[:page], per_page: 5)
   end

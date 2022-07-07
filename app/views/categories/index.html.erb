@@ -1,0 +1,27 @@
+<h1 class="text-center pt-4 text-white">Categories</h1>
+
+<%# this page consists of all articles in short form, made with bootstrap element called "card" %>
+<%# to get more info about cards see https://getbootstrap.com/docs/4.6/components/card/ %>
+
+<%# main container that include all of the cards %>
+<div class="container">
+  <%# iterate over articles and show their info %>
+  <% @categories.each do |category| %>
+    <div class="row justify-content-md-center">
+      <div class="col-4 mt-4">
+        <%# start of the card element %>
+        <div class="card text-center shadow rounded" id="window">
+          <%# card body with title and description of the article %>
+          <div class="card-body mt-2">
+            <h5 class="card-title"><%= link_to category.name, category_path(category), class: "text-white" %></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+ <%# render page links in the view: %>
+<div class="apple_pagination py-4">
+  <%= will_paginate @categories, :container => false %>
+</div>
