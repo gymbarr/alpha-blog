@@ -19,4 +19,20 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
     # check for a category name in the code of that page
     assert_match "Sports", response.body
   end
+
+  test "get new category form and reject invalid category submission" do
+    # the first action is to go to the new category creation page
+    get "/categories/new"
+    # check for OK response from the browser
+    assert_response :success
+
+    # after attempt of creating an invalid category total count of categories must be the same
+    assert_no_difference('Category.count') do
+      # create the category by post request
+      post categories_path, params: { category: { name: " " } }
+    end
+    # check for alert and alert-dismissible classes in the code of the page with error
+    assert_select 'div.alert'
+    assert_select 'div.alert-dismissible'
+  end
 end
