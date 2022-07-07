@@ -16,6 +16,14 @@
       </div>
     </div>
 
+    <div class="row justify-content-md-center pb-4">
+      <div class="col-7">
+        <%= f.collection_select(:category_ids, Category.all, :id, :name, 
+                                options = { :prompt => "Choose categories from the listed below" },
+                                html_options = { :multiple => true, class: "custom-select border border-secondary text-white", id: "window" }) %>
+      </div>
+    </div>
+
     <%# markup of submition (create or update) and cancel buttons %>
     <div class="row justify-content-md-center">
       <%= f.submit class: "btn btn-secondary mr-2" %>

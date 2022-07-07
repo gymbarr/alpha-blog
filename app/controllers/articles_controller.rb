@@ -24,6 +24,8 @@ class ArticlesController < ApplicationController
 
   # method for creating new articles
   def create
+    byebug
+    
     # creating new article with title and description params
     @article = Article.new(article_params)
     # the author of the creating article is now logged in user
@@ -68,8 +70,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  # whitelisting articles params
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, category_ids: [])
   end
 
   # restriction for a user not made actions with another user's articles through url

@@ -32,8 +32,13 @@ html,
   background-color: #343434;
 }
 
-/*change borders color of focused form control */
+// change border color of focused form control
 .form-control:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(236, 236, 236, 0.6);
+}
+
+// change border color of focused select box (for choosing categories for article)
+.custom-select:focus {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(236, 236, 236, 0.6);
 }
 
