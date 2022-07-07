@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  # almost all operations with categories require admin permission
+  before_action :require_admin, except: [:index, :show]
 
   # the method creates a new Category object
   def new
@@ -36,4 +38,13 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:name)
   end
 
+  private
+
+  # the method check if the current user is admin
+  def require_admin
+    if !(logged_in? && current_user.admin?)
+      flash[:alert] = "You don't have permission to do that action"
+      redirect_to categories_path
+    end
+  end
 end
