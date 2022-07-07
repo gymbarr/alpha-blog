@@ -25,3 +25,10 @@
 <div class="apple_pagination py-4">
   <%= will_paginate @categories, :container => false %>
 </div>
+
+<%# button for creation a new category. visible only for admin %>
+<%# so, check if the current user is admin %>
+<% if logged_in? && current_user.admin? %>
+  <%# this button has a static position relatively to the screen when scrolling the page %>
+  <%= link_to '+', new_category_path, class: "btn btn-secondary btn-circle btn-xl" %>
+<% end %>
