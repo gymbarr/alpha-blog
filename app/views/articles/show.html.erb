@@ -11,6 +11,14 @@
             <%= link_to gravatar_for(@article.user), @article.user %>
           <% end %>
 
+          <%# display categories of the article if they are %>
+          <% if @article.categories.any? %>
+            <div class="pt-2 text-center">
+              <%# iterate over categories and render each _category %>
+              <%= render @article.categories %>
+            </div>
+          <% end %>
+          
           <%# displaying the title of the article %>
           <h1 class="display-4 text-center"><strong><%= @article.title %></strong></h1>
           <%# displaying the full description of the article %>

@@ -15,7 +15,7 @@
         <%= f.text_area :description, class: "form-control border border-secondary text-white", rows: 15, id: "window", placeholder: "Enter the description..." %>
       </div>
     </div>
-
+    <%# markup of selecting list of categories %>
     <div class="row justify-content-md-center pb-4">
       <div class="col-7">
         <%= f.collection_select(:category_ids, Category.all, :id, :name, 

@@ -14,7 +14,16 @@
             <% if article.user %>
               by <%= link_to article.user.username, article.user, class: "text-white-50" %>
             <% end %>
+
+            <%# display categories of the article if they are %>
+            <% if article.categories.any? %>
+              <div class="row justify-content-md-center pt-2">
+                <%# iterate over categories and render each _category %>
+                <%= render article.categories %>
+              </div>
+            <% end %>
           </div>
+
           <%# card body with title and description of the article %>
           <div class="card-body">
             <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-white" %></h5>

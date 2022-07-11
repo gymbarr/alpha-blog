@@ -24,7 +24,6 @@ class ArticlesController < ApplicationController
 
   # method for creating new articles
   def create
-    byebug
     
     # creating new article with title and description params
     @article = Article.new(article_params)
