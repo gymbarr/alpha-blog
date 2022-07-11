@@ -10,9 +10,12 @@
   <%# buttons that located on the right side of the bar %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto text-center">
-      <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
-      </li>
+      <%# display Home page link if a user is not logged in %>
+      <% if !logged_in? %>
+        <li class="nav-item active">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+      <% end %>
       <li class="nav-item">
         <%= link_to "Articles", articles_path, class: "nav-link" %>
       </li>

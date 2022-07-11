@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
   # almost all operations with categories require admin permission
   before_action :require_admin, except: [:index, :show]
+  # get a category object by it's id
+  before_action :set_category, only: [:edit, :update, :destroy, :show]
 
   # the method creates a new Category object
   def new
@@ -22,6 +24,30 @@ class CategoriesController < ApplicationController
     end
   end
 
+  # the method for editing a category name
+  def edit
+  end
+
+  # method for updating categories
+  def update
+    # updating category with the name params
+    if @category.update(category_params)
+      flash[:notice] = "Category was updated successfully!"
+      # redirect to the category show page
+      redirect_to @category
+    else
+      # redirecting to the edit page if category wasn't updated
+      render 'edit'
+    end
+  end
+
+  # method for deleting a category
+  def destroy
+    @category.destroy
+    flash[:notice] = "The category was successfully deleted"
+    redirect_to categories_path
+  end
+
   # the method assign all the categories to the instance variable to show page of listing categories
   # with the use of will_paginate gem here was added a pagination
   def index
@@ -29,7 +55,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
     @articles = @category.articles.paginate(page: params[:page], per_page: 5)
   end
 
@@ -40,6 +65,11 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  # get a category object by id
+  def set_category
+    @category = Category.find(params[:id])
+  end
 
   # the method check if the current user is admin
   def require_admin

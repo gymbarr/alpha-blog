@@ -1,0 +1,13 @@
+<%# page for editing a category %>
+
+<h1 class="text-center pt-4 text-white">Edit category</h1>
+<%= render 'shared/errors', obj: @category %> %>
+<%= render 'form' %>
+
+<%# deleting a category with confirmation %>
+<div class="container-fluid fixed-bottom pb-5">
+  <div class="row justify-content-md-center pb-5">
+    <%= link_to 'Delete Category', category_path(@category), method: :delete, class: "btn btn-outline-danger",
+    data: { confirm: "Are you sure you want to delete this category?" } %>
+  </div>
+</div>
