@@ -54,17 +54,17 @@ class CategoriesController < ApplicationController
     @categories = Category.paginate(page: params[:page], per_page: 5)
   end
 
+  # the method for displaying a category show page
   def show
     @articles = @category.articles.paginate(page: params[:page], per_page: 5)
   end
 
   private
 
+  # whitelisting a category parameters
   def category_params
     params.require(:category).permit(:name)
   end
-
-  private
 
   # get a category object by id
   def set_category

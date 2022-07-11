@@ -15,15 +15,18 @@
           <div class="card-header font-italic">
             <%= link_to user.username, user, class: "text-white-50" %>
           </div>
+
           <%# card body with info about a user %>
           <div class="card-body">
             <%# displaying user's avatar with use of the created method gravatar_for %>
             <div class="container-fluid">
               <%= link_to gravatar_for(user, size: 100), user %>
             </div>
+            <%# display number of articles. method pluralize automatically adds ending to the word "article" %>
             <div class="text-center text-white py-2">
               <%= pluralize(user.articles.count, "article") %>
             </div>
+
             <%# buttons for showing and editing a user %>
             <%# "user" parameter transfer id of a user to the path %>
             <%= link_to 'View profile', user, class: "btn btn-secondary" %>
@@ -52,7 +55,7 @@
   <% end %>
 </div>
 
- <%# render page links in the view: %>
+ <%# render page links in the view %>
 <div class="apple_pagination pb-4">
   <%= will_paginate @users, :container => false %>
 </div>

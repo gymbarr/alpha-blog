@@ -1,3 +1,6 @@
+<%# page for editing an article %>
 <h1 class="text-center pt-4 text-white">Edit the article</h1>
+<%# display errors if they are %>
 <%= render 'shared/errors', obj: @article %>
+<%# render editing form %>
 <%= render 'form' %>

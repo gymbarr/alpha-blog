@@ -1,10 +1,12 @@
 class ArticlesController < ApplicationController
+  # get article object by id
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   # check that a user is logged in (order of calling methods :require_user and :require_same_user is matter! )
   before_action :require_user, except: [:show, :index]
   # check that the same user is logged in
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
+  # the method for displaying an article show page
   def show
   end
 

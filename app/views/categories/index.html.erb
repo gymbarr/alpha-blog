@@ -1,7 +1,7 @@
-<h1 class="text-center pt-4 text-white">Categories</h1>
+<%# this page consists of articles of certain category in short form %>
+<%# articles displayed in form of cards %>
 
-<%# this page consists of all articles in short form, made with bootstrap element called "card" %>
-<%# to get more info about cards see https://getbootstrap.com/docs/4.6/components/card/ %>
+<h1 class="text-center pt-4 text-white">Categories</h1>
 
 <%# main container that include all of the cards %>
 <div class="container">
@@ -11,9 +11,10 @@
       <div class="col-4 mt-4">
         <%# start of the card element %>
         <div class="card text-center shadow rounded" id="window">
-          <%# card body with title and description of the article %>
+          <%# card body with category name and number of articles in this category %>
           <div class="card-body text-white-50 mt-2">
             <h5 class="card-title"><%= link_to category.name, category_path(category), class: "text-white" %></h5>
+            <%# display number of articles. method pluralize automatically adds ending to the word "article" %>
             <%= pluralize(category.articles.count, "article") %>
           </div>
         </div>
@@ -22,7 +23,7 @@
   <% end %>
 </div>
 
- <%# render page links in the view: %>
+<%# render page links in the view %>
 <div class="apple_pagination py-4">
   <%= will_paginate @categories, :container => false %>
 </div>

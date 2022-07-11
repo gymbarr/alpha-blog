@@ -11,6 +11,7 @@
         <div class="card text-center shadow mb-5 rounded" id="window">
           <%# header of the card %>
           <div class="card-header font-italic text-white-50">
+            <%# display username (if exist) with a link to his profile %>
             <% if article.user %>
               by <%= link_to article.user.username, article.user, class: "text-white-50" %>
             <% end %>

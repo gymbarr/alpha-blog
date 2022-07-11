@@ -5,6 +5,7 @@
     <%# markup of article's title field %>
     <div class="row justify-content-md-center pb-4">
       <div class="col-7">
+        <%# input field for title of an article %>
         <%= f.text_field :title, class: "form-control border border-secondary text-white", id: "window", placeholder: "Enter the title..." %>
       </div>
     </div>
@@ -12,12 +13,14 @@
     <%# markup of article's description field %>
     <div class="row justify-content-md-center pb-4">
       <div class="col-7">
+        <%# input field for description of an article %>
         <%= f.text_area :description, class: "form-control border border-secondary text-white", rows: 15, id: "window", placeholder: "Enter the description..." %>
       </div>
     </div>
     <%# markup of selecting list of categories %>
     <div class="row justify-content-md-center pb-4">
       <div class="col-7">
+        <%# select-box with multiple selection for choosing categories of an article %>
         <%= f.collection_select(:category_ids, Category.all, :id, :name, 
                                 options = { :prompt => "Choose categories from the listed below" },
                                 html_options = { :multiple => true, class: "custom-select border border-secondary text-white", id: "window" }) %>

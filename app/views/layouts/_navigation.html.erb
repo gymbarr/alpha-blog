@@ -2,11 +2,12 @@
 <%# See information on https://getbootstrap.com/docs/4.6/components/navbar/ %>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <%# bar logog %>
+  <%# bar logo %>
   <%= link_to "JUST BLOG", root_path, class: "navbar-brand", id: "logo" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <%# buttons that located on the right side of the bar %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto text-center">
@@ -25,6 +26,7 @@
       <li class="nav-item">
         <%= link_to "Users", users_path, class: "nav-link" %>
       </li>
+
       <%# when a user logged in %>
       <% if logged_in? %>
         <%# display dropdown element with username text %>

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  # get user object by id
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # logged in user requirement (see application_controller)
   before_action :require_user, only: [:edit, :update]
+  # corresponding user requirement
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # method gets the User instance by user's id
