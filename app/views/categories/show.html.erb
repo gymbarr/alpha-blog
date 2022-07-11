@@ -1,1 +1,18 @@
+<%# this page displays all the articles for corresponding category %>
+
 <h1 class="text-center pt-4 text-white">Category: <%= @category.name %></h1>
+
+<%# edit a category name can only admin, so compare a user with an admin %>
+<% if logged_in? && current_user.admin? %>
+  <div class="text-center pt-4">
+    <%= link_to "Edit category", edit_category_path(@category), class:"btn btn-secondary" %>
+  </div>
+<% end %>
+
+<%# displaying the user's articles by rendering page articles and sent to it the @category.articles parameter (see show method in categories_controller) %>
+<%= render 'articles/article' %>
+
+ <%# render page links in the view: %>
+<div class="apple_pagination pb-4">
+  <%= will_paginate @articles, :container => false %>
+</div>
