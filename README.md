@@ -1,24 +1,47 @@
-# README
+# Just Blog app
+> Simple blog application created with Ruby on Rails, Bootstrap 4 and SQLite3
+> Live demo [_here_](https://justblog-6.herokuapp.com).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Table of Contents
+* [General Info](#general-information)
+* [Technologies Used](#technologies-used)
+* [Features](#features)
+* [Screenshots](#screenshots)
+* [Project Status](#project-status)
+* [Acknowledgements](#acknowledgements)
+* [Contact](#contact)
 
-Things you may want to cover:
 
-* Ruby version
+## General Information
+This application intended for reading articles of different users and for creating your own articles with categories
 
-* System dependencies
 
-* Configuration
+## Technologies Used
+- Ruby on Rails - version 6.0.5
+- Bootstrap - version 4.6
+- SQLite3 database adapter
 
-* Database creation
 
-* Database initialization
+## Features
+List the ready features here:
+- One-to-many association between users and articles
+- Many-to-many association between articles and categories
+- Login using secure password
+- Restriction of actions based on logged in/logged out state
+- Admin user functionality and access level
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Screenshots
+![Example screenshot](./img/screenshot.png)
 
-* Deployment instructions
 
-* ...
+## Project Status
+Project is: _complete_
+
+
+## Acknowledgements
+- This project was based on [Ruby on Rails course](https://www.udemy.com/course/the-complete-ruby-on-rails-developer-course/).
+
+
+## Contact
+Created by [@Andrey Timakhovich](https://www.linkedin.com/in/andrey-timakhovich-5a2429169/) - feel free to contact me!
