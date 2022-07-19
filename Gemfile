@@ -30,8 +30,8 @@ gem 'will_paginate', '~> 3.3'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  # Use PostgreSQL as the database for Active Record
+  gem 'pg', '~> 0.18'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -54,7 +54,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 0.18'
+  # gem 'pg', '~> 0.18'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
