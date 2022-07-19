@@ -1,24 +1,22 @@
 # PostgreSQL database
 
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV.fetch("DB_HOST", "localhost") %>
+  port: <%= ENV.fetch("DB_PORT", "5432") %>
+  username: <%= ENV.fetch("DB_USERNAME", "postgres") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
   database: blog_db_development
-  pool: 5
-  host: localhost
-  username: blog_admin
-  password: password123
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: blog_db_test
-  pool: 5
-  username: blog_admin
-  password: password123
 
-# staging:
-#   url: <%= ENV['DATABASE_URL'] %>
-
-# production:
-#   url: <%= ENV['DATABASE_URL'] %>
+production:
+  <<: *default
+  database: <%= ENV.fetch("DB_NAME", "blog_db_production") %>
